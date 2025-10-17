@@ -83,6 +83,13 @@ const food = [
       "https://s7d1.scene7.com/is/image/mcdonalds/DC_202004_0706_BakedApplePie_Broken_1564x1564-1?wid=1000&hei=1000&dpr=off",
     alt: "fast food",
   },
+  {
+    name: "Happy Meal",
+    price: "$6.77",
+    Image:
+      "https://s7d1.scene7.com/is/image/mcdonalds/TinyTAN_Hamburger_1564x1564?wid=1000&hei=1006&dpr=off",
+    alt: "fast food",
+  },
 ];
 
 function inject(food) {
@@ -107,12 +114,12 @@ inject(food);
 function getCards() {
   const buttons = document.querySelectorAll(".button");
   const btnArr = Array.from(buttons);
-  btnArr.forEach((btn) => {
-    btn.addEventListener("click", function (event) {
-      console.log(
-        event.target.closest(".display-card").getAttribute("data-id")
-      );
-      event.target.textContent = "Purchased";
+  btnArr.forEach((button) => {
+    button.addEventListener("click", function (event) {
+      event.target.textContent = "Added!";
+      setTimeout(() => {
+        event.target.textContent = "Add to Cart";
+      }, 1000);
     });
   });
 }
