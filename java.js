@@ -103,6 +103,14 @@ const food = [
       "https://s7d1.scene7.com/is/image/mcdonalds/TinyTAN_Hamburger_1564x1564?wid=1000&hei=1006&dpr=off",
     alt: "fast food",
   },
+  {
+    name: "Quarter Pounder",
+    price: "$3.99",
+    typeof: "Sandwiches",
+    Image:
+      "https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564?wid=1000&hei=1000&dpr=off",
+    alt: "fast food",
+  }
 ];
 
 function inject(food) {
