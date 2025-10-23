@@ -110,7 +110,7 @@ const food = [
     Image:
       "https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564?wid=1000&hei=1000&dpr=off",
     alt: "fast food",
-  }
+  },
 ];
 
 function inject(food) {
@@ -119,7 +119,7 @@ function inject(food) {
     container.insertAdjacentHTML(
       "afterbegin",
       `
-      <div class="card">
+      <div class="card" data-type="${food.typeof}">
         <h2 class="card-header">${food.name}</h2>
         <img class="card-img" src="${food.Image}" alt="${food.alt}" />
         <h3 class="card-price">${food.price}</h3>
@@ -147,11 +147,11 @@ function getCards() {
 
 getCards();
 
-function filterbyType(typeof) {
-  const filteredFood = document.querySelector(".container");
-  filteredFood.forEach((food) => {
-    const FoodType = food.getAttribute("typeof");
-    if (FoodType === typeof) {
+function filterbyType(FilteredFoodType) {
+  const foods = document.querySelectorAll(".card");
+  foods.forEach((food) => {
+    const FoodType = food.getAttribute("data-type");
+    if (FoodType === FilteredFoodType) {
       food.style.display = "";
     } else {
       food.style.display = "none";
@@ -159,4 +159,7 @@ function filterbyType(typeof) {
   });
 }
 
-filterbyType("Sandwiches");
+document.querySelector("filter-sandwiches");
+addEventListener("click", () => {
+  filterbyType("Sandwiches");
+});
