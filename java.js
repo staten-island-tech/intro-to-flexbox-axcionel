@@ -159,7 +159,3 @@ function filterbyType(FilteredFoodType) {
   });
 }
 
-document.querySelector("filter-sandwiches");
-addEventListener("click", () => {
-  filterbyType("Sandwiches");
-});
