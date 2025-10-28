@@ -186,8 +186,8 @@ function cart() {
   buttons.forEach(button => {
     button.addEventListener("click", function (event) {
       const card = event.target.closest(".card");
-      const name = card.getAttribute("card-name").textContent;
-      const price = card.getAttribute("card-price").textContent;
+      const name = card.getAttribute("card-name");
+      const price = card.getAttribute("card-price");
       cartItems.insertAdjacentHTML(
         "afterbegin",
         `
@@ -198,5 +198,15 @@ function cart() {
       `
       );
     });
+  });}
+function getcartItems() {
+  let cart = document.querySelector(".cart")
+  let items = cart.querySelector(".cart-items");
+  if (!items) {
+    items = document.createElement("div");
+    items.className = "cart-items";
+    cart.appendChild(items);
+  return items;
+}}
 
-    function
+cart();
