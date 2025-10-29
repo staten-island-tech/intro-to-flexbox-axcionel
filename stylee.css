@@ -49,6 +49,9 @@ body,
   bottom: 5px;
 }
 
+.cart {
+  background-color: aqua;
+}
 
 .button {
   width: 40%;

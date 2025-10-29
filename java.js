@@ -124,6 +124,54 @@ const food = [
       "https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_202201_0007-005_QuarterPounderwithCheese_1564x1564?wid=1000&hei=1000&dpr=off",
     alt: "fast food",
   },
+  {
+    name: "Sausage McMuffin with Egg Meal",
+    price: "$6.99",
+    typeof: "Combos",
+    Image:
+      "https://s7d1.scene7.com/is/image/mcdonalds/DC_202008_3655_EVM_HB_SausageEggMcMuffin_Coffee_Glass_1564x1564-1?wid=1000&hei=1000&dpr=off",
+    alt: "fast food",
+  },
+  {
+    name: "Big Mac Meal",
+    price: "$7.99",
+    typeof: "Combos",
+    Image:
+      "https://s7d1.scene7.com/is/image/mcdonalds/DC_202307_8936_EVM_M_BigMac_Coke_1564x1564-1?wid=1000&hei=1000&dpr=off",
+    alt: "fast food",
+  },
+  {
+    name: "Spicy Deluxe McCrispy Meal",
+    price: "$7.49",
+    typeof: "Combos",
+    Image:
+      "https://s7d1.scene7.com/is/image/mcdonalds/DC_202503_0099_EVM_M_DeluxeSpicyCrispyChickenSandwich_PotatoBun_1564x1564?wid=1000&hei=1000&dpr=off",
+    alt: "fast food",
+  },
+  {
+    name: "Spicy Snack Wrap Meal",
+    price: "$5.49",
+    typeof: "Combos",
+    Image:
+      "https://s7d1.scene7.com/is/image/mcdonalds/DC_202504_25271_2SpicySnackWrapMeal_1564x1564?wid=1000&hei=1000&dpr=off",
+    alt: "fast food",
+  },
+  {
+    name: "Sausage Biscuit with Egg",
+    price: "$3.49",
+    typeof: "Sandwiches",
+    Image:
+      "https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_201907_0092_SausageEggBiscuit_1564x1564?wid=1000&hei=1000&dpr=off",
+    alt: "fast food",
+  },
+  {
+    name: "Bacon Egg and Cheese McGriddle",
+    price: "$3.99",
+    typeof: "Sandwiches",
+    Image:
+      "https://s7d1.scene7.com/is/image/mcdonaldsstage/DC_201908_9839_BEC_McGriddle_1564x1564-1?wid=1000&hei=1000&dpr=off",
+    alt: "fast food",
+  },
 ];
 
 function inject(food) {
@@ -133,9 +181,9 @@ function inject(food) {
       "afterbegin",
       `
       <div class="card" data-type="${food.typeof}">
-        <h2 class="card-header">card-name="${food.name}"</h2>
+        <h2 class="card-header">${food.name}</h2>
         <img class="card-img" src="${food.Image}" alt="${food.alt}" />
-        <h3 class="card-price">card-price="${food.price}"</h3>
+        <h3 class="card-price">${food.price}</h3>
         <button class="button">Add to Cart</button>
       </div>
     `
@@ -192,16 +240,17 @@ function cart() {
         "afterbegin",
         `
         <div class="cart-item">
-          <h4 class="item-name">${name}</h4>
-          <h5 class="item-price">${price}</h5>
+          <h4 class="card-name">${name}</h4>
+          <h5 class="card-price">${price}</h5>
         </div>
       `
       );
     });
   });}
+
 function getcartItems() {
-  let cart = document.querySelector(".cart")
-  let items = cart.querySelector(".cart-items");
+  const cart = document.querySelector(".cart")
+  const items = cart.querySelector(".cart-items");
   if (!items) {
     items = document.createElement("div");
     items.className = "cart-items";
