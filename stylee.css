@@ -50,23 +50,11 @@ body,
 }
 
 .cart {
-  background-color: aqua;
-}
-
-.button {
-  width: 40%;
-  height: 40px;
-  border: 2px solid rgb(0, 0, 0);
-  border-radius: 10px;
-  background-color: black;
-  color: white;
   font-family: "Alan Sans", sans-serif;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
-  cursor: pointer;
-  position: relative;
-  bottom: 5px;
+  background-color: aqua;
 }
 
 .filters {

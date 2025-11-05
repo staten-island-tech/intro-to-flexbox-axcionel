@@ -184,7 +184,7 @@ function inject(food) {
         <h2 class="card-header">${food.name}</h2>
         <img class="card-img" src="${food.Image}" alt="${food.alt}" />
         <h3 class="card-price">${food.price}</h3>
-        <button class="button">Add to Cart</button>
+        <button class="button">Add To Cart</button>
       </div>
     `
     );
@@ -227,6 +227,17 @@ function showAll() {
   });
 }
 
+function getcartItems() {
+  const cart = document.querySelector(".cart")
+  let items = cart.querySelector(".cart-items");
+  if (!items) {
+    items = document.createElement("div");
+    items.className = "cart-items";
+    cart.appendChild(items);
+  }
+  return items;
+}
+
 function cart() {
   const buttons = document.querySelectorAll(".button");
   const cartItems = getcartItems();
@@ -234,28 +245,18 @@ function cart() {
   buttons.forEach(button => {
     button.addEventListener("click", function (event) {
       const card = event.target.closest(".card");
-      const name = card.getAttribute("card-name");
-      const price = card.getAttribute("card-price");
+      const foodname = card.querySelector(".card-header").textContent;
+      const foodprice = card.querySelector(".card-price").textContent;
       cartItems.insertAdjacentHTML(
         "afterbegin",
         `
         <div class="cart-item">
-          <h4 class="card-name">${name}</h4>
-          <h5 class="card-price">${price}</h5>
+          <h2 class="cart-item-name">${foodname}</h2>
+          <h3 class="cart-item-price">${foodprice}</h3>
         </div>
       `
       );
     });
   });}
 
-function getcartItems() {
-  const cart = document.querySelector(".cart")
-  const items = cart.querySelector(".cart-items");
-  if (!items) {
-    items = document.createElement("div");
-    items.className = "cart-items";
-    cart.appendChild(items);
-  return items;
-}}
-
-cart();
+  cart();
